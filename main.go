@@ -142,5 +142,5 @@ func main() {
 	router.POST("/add", addColour)
 	router.DELETE("/delete", deleteColour)
 	router.PATCH("/edit", editColour)
-	router.Run("localhost:1212")
+	router.Run("127.0.0.1:1212")
 }
