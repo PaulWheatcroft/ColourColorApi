@@ -7,7 +7,7 @@ import (
 	"os"
 	"log"
 	"sort"
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
 
@@ -125,10 +125,10 @@ func editColour(context *gin.Context) {
 }
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
+//	err := godotenv.Load(".env")
+//	if err != nil {
+//		log.Fatalf("Error loading .env file")
+//	}
 	router := gin.Default()
 	router.Use(cors.New(cors.Config{
         AllowOrigins:     []string{"http://localhost:5173"},
@@ -142,5 +142,5 @@ func main() {
 	router.POST("/add", addColour)
 	router.DELETE("/delete", deleteColour)
 	router.PATCH("/edit", editColour)
-	router.Run("127.0.0.1:1212")
+	router.Run("0.0.0.0:1212")
 }
