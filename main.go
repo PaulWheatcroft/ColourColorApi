@@ -9,7 +9,7 @@ import (
 	"sort"
 	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
-	"github.com/gin-contrib/cors"
+	// "github.com/gin-contrib/cors"
 
 	"github.com/go-sql-driver/mysql"
 )
@@ -130,17 +130,17 @@ func main() {
 		log.Fatalf("Error loading .env file")
 	}
 	router := gin.Default()
-	router.Use(cors.New(cors.Config{
-        AllowOrigins:     []string{"http://localhost:5173"},
-        AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE"},
-        AllowHeaders:     []string{"Origin", "Content-Type"},
-        ExposeHeaders:    []string{"Content-Length"},
-        AllowCredentials: true,
-    }))
+	// router.Use(cors.New(cors.Config{
+    //     AllowOrigins:     []string{"http://localhost:5173"},
+    //     AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE"},
+    //     AllowHeaders:     []string{"Origin", "Content-Type"},
+    //     ExposeHeaders:    []string{"Content-Length"},
+    //     AllowCredentials: true,
+    // }))
 	fmt.Printf("I am running ColourColorApi")
 	router.GET("/colours", getColours)
 	router.POST("/add", addColour)
 	router.DELETE("/delete", deleteColour)
 	router.PATCH("/edit", editColour)
-	router.Run("127.0.0.1:1212")
+	router.Run(":1212")
 }
